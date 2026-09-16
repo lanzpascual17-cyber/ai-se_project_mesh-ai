@@ -17,3 +17,6 @@ dist
 
 # Secrets
 .env
+
+# Uploaded files
+uploads/
