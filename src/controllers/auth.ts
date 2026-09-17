@@ -47,7 +47,7 @@ if (existingUser) {
   return res.status(409).json({
     success: false,
     data: null,
-    error: { message: "User already exists" },
+    error: { message: "Email is already in use" },
   });
 }
   const hashedPassword = await bcrypt.hash(password, 10);
@@ -100,12 +100,14 @@ export const loginUser = async (req: Request, res: Response) => {
   );
   res.status(200).json({
     success: true,
-    data: {
-      userId: user._id,
-      name: user.name,
-      email: user.email,
-      token: token,
-    },
+data: {
+  user: {
+    userId: user._id,
+    name: user.name,
+    email: user.email,
+  },
+  token: token,
+},
     error: null,
   });
 };

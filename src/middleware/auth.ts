@@ -11,7 +11,7 @@ if (!authHeader || !authHeader.startsWith("Bearer ")) {
 return res.status(401).json({
   success: false,
   data: null,
-  error: { message: "Unauthorized" },
+  error: { message: "Invalid token" },
 });
 }
 
@@ -21,7 +21,7 @@ if (!token) {
   return res.status(401).json({
     success: false,
     data: null,
-    error: { message: "Unauthorized" },
+    error: { message: "Token not provided" },
   });
 }
 
@@ -37,7 +37,7 @@ try {
   res.status(401).json({
     success: false,
     data: null,
-    error: { message: "Unauthorized" },
+    error: { message: "Invalid token" },
   });
 }
 };
