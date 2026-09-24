@@ -1,4 +1,8 @@
-run-name: 'Running tests for ${{ github.event.head_commit.message }}'
+defaults:
+  run:
+    working-directory: ./server
+
+run-name: "Running tests for ${{ github.event.head_commit.message }}"
 
 on:
   push:
