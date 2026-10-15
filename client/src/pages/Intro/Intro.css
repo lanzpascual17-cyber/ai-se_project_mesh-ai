@@ -1,0 +1,40 @@
+.intro__card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.intro__cards {
+  display: flex;
+  gap: 24px;
+  margin: 24px 0 23px;
+}
+
+.intro__card {
+  width: 210px;
+  height: 236px;
+  background-color: #f6f3ff;
+  border-radius: 16px;
+  padding: 15px 12px;
+  box-sizing: border-box;
+}
+
+.intro {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: fit-content;
+  margin: 0 auto;
+  font-family: "Work Sans", sans-serif;
+}
+
+.intro button {
+  background-color: #222;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 16px;
+  cursor: pointer;
+}

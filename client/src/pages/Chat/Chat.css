@@ -1,0 +1,245 @@
+.chat {
+  display: flex;
+  min-height: calc(100vh - 78px);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.chat__sidebar {
+  width: 220px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.chat__new-btn {
+  width: 100%;
+  padding: 10px 12px;
+  background-color: #fff;
+  border: 1px solid #e8e4f0;
+  border-radius: 4px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.chat__item {
+  padding: 10px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.chat__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.chat__item_active {
+  background-color: #eee7f8;
+  color: #8060c8;
+}
+
+.chat__main {
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  max-width: 720px;
+  height: 520px;
+  margin: 0 auto;
+  padding: 16px;
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.08);
+  box-sizing: border-box;
+}
+
+.chat__messages {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  max-width: 720px;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+}
+
+.chat__message {
+  max-width: 75%;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.chat__message_user {
+  align-self: flex-end;
+  background-color: #eee7f8;
+  border-radius: 16px;
+  padding: 12px 16px;
+}
+
+.chat__message_assistant {
+  align-self: flex-start;
+}
+
+.chat__no-messages {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  text-align: center;
+  gap: 16px;
+}
+
+.chat__error {
+  color: #d32f2f;
+  text-align: center;
+  padding: 24px;
+}
+
+.chat__message_assistant p {
+  margin: 0 0 12px;
+}
+
+.chat__message_assistant p:last-child {
+  margin-bottom: 0;
+}
+
+.chat__message_assistant strong {
+  font-weight: 600;
+}
+
+.chat__message_assistant ul,
+.chat__message_assistant ol {
+  padding-left: 20px;
+  margin-bottom: 12px;
+}
+
+.chat__message_assistant li {
+  margin-bottom: 4px;
+}
+
+.chat__message_assistant h1,
+.chat__message_assistant h2,
+.chat__message_assistant h3 {
+  font-weight: 600;
+  margin: 16px 0 8px;
+}
+
+.chat__message_assistant hr {
+  border: none;
+  border-bottom: 1px solid rgb(28 28 28 / 0.1);
+  margin: 16px 0;
+}
+
+.chat__message_assistant code {
+  font-family: ui-monospace, "Cascadia Code", "SF Mono", monospace;
+  font-size: 0.9em;
+  background: rgb(0 0 0 / 0.06);
+  padding: 2px 5px;
+  border-radius: 4px;
+}
+
+.chat__input-bar {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+  min-height: 84px;
+  margin: 16px auto 0;
+  padding: 12px;
+  border: 1px solid #d5d5d5;
+  border-radius: 10px;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.chat__input {
+  flex: 1;
+  min-width: 0;
+  resize: none;
+  border: none;
+  outline: none;
+  background: transparent;
+  font: inherit;
+  font-size: 14px;
+}
+
+.chat__send {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: #999;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.chat__send img {
+  display: block;
+  width: 19px;
+  height: 17px;
+}
+
+@media (max-width: 1200px) {
+  .chat__sidebar {
+    position: fixed;
+    top: 47px;
+    left: 0;
+    bottom: 0;
+    width: 210px;
+    height: auto;
+    max-width: 255px;
+    padding: 12px;
+    box-sizing: border-box;
+    z-index: 102;
+    background: #fff;
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .chat__sidebar_open {
+    transform: translateX(0);
+  }
+
+.chat__list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.chat__item {
+  padding: 8px 10px;
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.chat {
+  height: calc(100dvh - 70px);
+  min-height: 0;
+  padding: 20px;
+}
+
+.chat__main {
+  height: 100%;
+  min-height: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}

@@ -3,3 +3,71 @@
   height: 8px;
   filter: invert(1);
 }
+
+@media (max-width: 1200px) {
+  .knowledge-base {
+    padding: 24px 20px;
+    font-family: "Work Sans", Arial, sans-serif;
+  }
+
+  .knowledge-base h1 {
+    margin: 0 0 28px;
+    font-size: 28px;
+    line-height: 1.35;
+    font-weight: 700;
+    color: #1c1c1c;
+  }
+
+  .knowledge-base__content > p:first-child {
+    margin: 0 0 12px;
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  .knowledge-base__document-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 28px;
+  }
+
+  .knowledge-base__document {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    max-width: 100%;
+    padding: 12px 16px;
+    border-radius: 8px;
+    background-color: #f3f3f3;
+  }
+
+  .knowledge-base__document p {
+    margin: 0;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+  }
+
+  .knowledge-base__delete-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .knowledge-base__save-btn {
+    display: block;
+    width: 100%;
+    margin-top: 28px;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background-color: #1c1c1c;
+    color: #fff;
+    font: inherit;
+    font-size: 16px;
+    cursor: pointer;
+  }
+}

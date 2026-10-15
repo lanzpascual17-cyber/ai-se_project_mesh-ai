@@ -51,9 +51,13 @@ export default function KnowledgeBase() {
         {!isLoading && !error && documents.length > 0 && (
           <div className="knowledge-base__document-list">
             {documents.map((doc) => (
-              <div key={doc._id}>
+              <div className="knowledge-base__document" key={doc._id}>
                 <p>{doc.fileName}</p>
-                <button type="button" aria-label={`Delete ${doc.fileName}`}>
+                <button
+                  className="knowledge-base__delete-btn"
+                  type="button"
+                  aria-label={`Delete ${doc.fileName}`}
+                >
                   <img
                     className="knowledge-base__delete-icon"
                     src={deleteIcon}
@@ -64,7 +68,7 @@ export default function KnowledgeBase() {
             ))}
           </div>
         )}
-        <button>Save</button>
+        <button className="knowledge-base__save-btn">Save</button>
       </section>
     </div>
   );
