@@ -8,13 +8,15 @@ import Chat from "../../pages/Chat/Chat";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Intro />} />
-      <Route element={<AppLayout />}>
-        <Route path="/knowledge" element={<KnowledgeBase />} />
-        <Route path="/chat" element={<Chat />} />
-      </Route>
-    </Routes>
+    <div className="app">
+      <Routes>
+        <Route path="/" element={<Intro />} />
+        <Route element={<AppLayout />}>
+          <Route path="/knowledge" element={<KnowledgeBase />} />
+          <Route path="/chat" element={<Chat />} />
+        </Route>
+      </Routes>
+    </div>
   );
 }
 
