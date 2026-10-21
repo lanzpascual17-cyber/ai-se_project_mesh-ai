@@ -22,6 +22,10 @@ export default function KnowledgeBase() {
     setDocuments((prev) => [newDoc, ...prev]);
   };
 
+  const handleDelete = (id: string) => {
+    setDocuments((prev) => prev.filter((doc) => doc._id !== id));
+  };
+
   useEffect(() => {
     const fetchDocuments = async () => {
       try {
@@ -57,11 +61,12 @@ export default function KnowledgeBase() {
                   className="knowledge-base__delete-btn"
                   type="button"
                   aria-label={`Delete ${doc.fileName}`}
+                  onClick={() => handleDelete(doc._id)}
                 >
                   <img
                     className="knowledge-base__delete-icon"
                     src={deleteIcon}
-                    alt=""
+                    alt="Delete document icon"
                   />
                 </button>
               </div>
