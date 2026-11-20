@@ -26,3 +26,6 @@ export const buildContext = (
     .map((chunk, index) => `Chunk ${index + 1}: ${chunk.text}`)
     .join("\n\n");
 };
+
+export const stripThinking = (text: string): string =>
+  text.replace(/<think>[\s\S]*?<\/think>\s*/g, "").trim();

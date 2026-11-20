@@ -7,6 +7,7 @@ import {
   getClient,
   LLM_MODEL,
   buildContext,
+  stripThinking,
 } from "../utils/openai-client.js";
 
 export const runQuery = async (
@@ -66,8 +67,9 @@ export const runQuery = async (
     ],
   });
 
-  const answer =
-    completion.choices[0]?.message?.content ?? "";
+const answer =
+  stripThinking(completion.choices[0]?.message?.content ?? "") ||
+  "No answer returned.";
 
   res.status(200).json({
     success: true,

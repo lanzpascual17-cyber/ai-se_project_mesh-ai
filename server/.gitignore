@@ -20,3 +20,4 @@ dist
 
 # Uploaded files
 uploads/
+*.pdf

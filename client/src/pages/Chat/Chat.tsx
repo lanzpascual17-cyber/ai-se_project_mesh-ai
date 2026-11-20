@@ -1,5 +1,5 @@
 import sendIcon from "../../assets/send.svg";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import ReactMarkdown from "react-markdown";
 import { useOutletContext } from "react-router-dom";
 import { getChats, createChat, getChat, sendMessage } from "../../utils/api";
@@ -26,6 +26,11 @@ export default function Chat() {
   const [messagesError, setMessagesError] = useState("");
   const [input, setInput] = useState<string>("");
   const [isSending, setIsSending] = useState<boolean>(false);
+  const messagesEndRef = useRef<HTMLLIElement>(null);
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
 
   useEffect(() => {
     const load = async () => {
@@ -98,7 +103,10 @@ export default function Chat() {
     try {
       const res = await sendMessage(activeChatId, text);
       if (res.data) {
-        setMessages((prev) => [...prev, res.data!]);
+        setMessages((prev) => [
+          ...prev.filter((m) => m._id !== userMessage._id),
+          ...res.data!,
+        ]);
       }
     } catch {
       const errorMessage: Message = {
@@ -233,6 +241,12 @@ export default function Chat() {
                   )}
                 </li>
               ))}
+              {isSending && (
+                <li className="chat__message chat__message_assistant chat__message_thinking">
+                  Thinking…
+                </li>
+              )}
+              <li ref={messagesEndRef} />
             </ul>
 
             <div className="chat__input-bar">

@@ -1,5 +1,8 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./Header.css";
+
+import { useState } from "react";
+import { useAuth } from "../../contexts/AuthContext";
 
 import logo from "../../assets/Logo (1).svg";
 
@@ -14,6 +17,14 @@ export default function Header({
   onMenuClose,
   isMobileMenuOpen,
 }: Props) {
+  const { isAuthenticated, currentUser, logout } = useAuth();
+  const [isAccountMenuOpen, setIsAccountMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  function handleLogout() {
+    logout();
+    setIsAccountMenuOpen(false);
+    navigate("/login");
+  }
   function getNavLinkClass({ isActive }: { isActive: boolean }) {
     return isActive ? "header__link header__link_active" : "header__link";
   }
@@ -42,6 +53,29 @@ export default function Header({
           Chat
         </NavLink>
       </nav>
+      {isAuthenticated && (
+        <div>
+          <button
+            type="button"
+            className="header__dropdown-btn"
+            aria-haspopup="menu"
+            aria-expanded={isAccountMenuOpen}
+            onClick={() => setIsAccountMenuOpen(!isAccountMenuOpen)}
+          >
+            {currentUser?.name}'s Account
+          </button>
+
+          {isAccountMenuOpen && (
+            <ul className="header__menu" role="menu">
+              <li role="none">
+                <button type="button" role="menuitem" onClick={handleLogout}>
+                  Logout
+                </button>
+              </li>
+            </ul>
+          )}
+        </div>
+      )}
     </header>
   );
 }

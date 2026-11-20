@@ -3,6 +3,7 @@ import { authRouter } from "./auth.js";
 import { chatRouter } from "./chats.js";
 import { documentsRouter } from "./documents.js";
 import { queryRouter } from "./query.js";
+import { usersRouter } from "./users.js";
 
 const router = Router();
 
@@ -10,5 +11,6 @@ router.use("/auth", authRouter);
 router.use("/chats", chatRouter);
 router.use("/documents", documentsRouter);
 router.use("/query", queryRouter);
+router.use("/users", usersRouter);
 
 export { router };
