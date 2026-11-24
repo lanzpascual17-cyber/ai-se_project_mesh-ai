@@ -47,7 +47,7 @@ if (existingUser) {
   return res.status(409).json({
     success: false,
     data: null,
-    error: { message: "Email is already in use" },
+    error: { message: "Email already in use" },
   });
 }
   const hashedPassword = await bcrypt.hash(password, 10);

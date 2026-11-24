@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import { useFormWithValidation } from "../../hooks/useFormWithValidation";
 import { loginUser } from "../../utils/api";
 import { useAuth } from "../../contexts/AuthContext";
@@ -8,6 +8,7 @@ import logo from "../../assets/Logo (1).svg";
 export default function Login() {
   const { values, errors, isValid, handleChange } = useFormWithValidation();
   const navigate = useNavigate();
+  const location = useLocation();
   const { login } = useAuth();
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -29,7 +30,7 @@ export default function Login() {
 
       if (res.data) {
         login(res.data.token, res.data.user);
-        navigate("/knowledge");
+        navigate(location.state?.from ?? "/knowledge", { replace: true });
       }
     } catch (error) {
       setSubmitError(error instanceof Error ? error.message : "Login failed");

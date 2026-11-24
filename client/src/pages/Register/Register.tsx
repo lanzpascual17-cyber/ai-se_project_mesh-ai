@@ -77,6 +77,9 @@ export default function Register() {
             />
           </label>
           {errors.email && <p className="form__error">{errors.email}</p>}
+          {submitError === "Email already in use" && (
+            <p className="form__error">{submitError}</p>
+          )}
         </div>
         <div className="form__input-container">
           <label className="form__label">
@@ -94,7 +97,7 @@ export default function Register() {
           {errors.password && <p className="form__error">{errors.password}</p>}
         </div>
         <p className="form__status" role="status">
-          {submitError}
+          {submitError !== "Email already in use" && submitError}
         </p>
         <button
           className="form__submit"
